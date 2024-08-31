@@ -1,0 +1,34 @@
+[
+    {
+        "id":1,
+        "name":"Children Books",
+        "title":"kids choice",
+        "price":"0",
+        "category":"Free",
+        "image":"https://img.freepik.com/free-photo/front-view-kid-reading-portrait_23-2151532352.jpg?t=st=1723295176~exp=1723298776~hmac=4ae27c3731ee31a1f727ded1910edc12409e2432e665cbcc5d85f8164a251a5d&w=900"
+    },
+    {
+        "id":2,
+        "name":"sci-fi books",
+        "title":"Men's choice",
+        "price":"0",
+        "category":"Free",
+        "image":"https://img.freepik.com/free-photo/still-life-books-versus-technology_23-2150062944.jpg?t=st=1723295023~exp=1723298623~hmac=794b5f0f437a7e37ff8ab14e91ad4826126a485a60054a8c0ffa19cb2d220dce&w=900"
+    },
+    {
+        "id":3,
+        "name":"Horror books",
+        "title":"Human's choice",
+        "price":"0",
+        "category":"Free",
+        "image":"https://img.freepik.com/free-photo/person-gestures-holding-red-book_23-2148277431.jpg?t=st=1723295272~exp=1723298872~hmac=1c022737a81f114b4e4854b4694111ab81ffbbcff02366131eeb96c26b539c27&w=900"
+    },
+    {
+        "id":4,
+        "name":"Fantasy books",
+        "title":"Teen's choice",
+        "price":"0",
+        "category":"Free",
+        "image":"https://img.freepik.com/free-photo/magic-fairytale-book-concept_23-2150171876.jpg?t=st=1723294029~exp=1723297629~hmac=6c688424133ff4c9e6f033f5e53db8c7142af426fe33992b5b9edd584b5b573f&w=900"
+    }
+]
