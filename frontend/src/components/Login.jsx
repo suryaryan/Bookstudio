@@ -1,11 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-
+import axios from "axios";
+import toast from "react-hot-toast";
 export default function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit =async (data) => {
+    const userInfo={
+      email : data.email,
+      password: data.password,
+      }
+      await axios
+      .post("http://localhost:4001/user/login",userInfo)
+      .then((res)=>{
+        console.log(res.data)
+        if(res.data){
+          toast.success('login Successfully');
+        }
+        localStorage.setItem("Users",JSON.stringify(res.data.user))
+      }).catch((err)=>{
+        console.log(err.response.data.message);
+        toast.error("error:" +err.response.data.message);
+      })
+  }
 
   return (
     <div>
@@ -21,7 +39,7 @@ export default function Login() {
             </button>
             <h3 className="font-bold text-lg">Login</h3>
             <div className="mt-4 space-y-2">
-              <label htmlFor="email">Email</label>
+              <label className="mr-10" htmlFor="email">Email</label>
               <input
                 id="email"
                 type="email"
@@ -33,7 +51,7 @@ export default function Login() {
               {errors.email && <span className="text-sm text-red-600">{errors.email.message}</span>}
             </div>
             <div className="mt-4 space-y-2">
-              <label htmlFor="password">Password</label>
+              <label className="mr-3" htmlFor="password">Password</label>
               <input
                 id="password"
                 type="password"

@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import list from "../../public/list.json"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Cards from './cards';
+import axios from 'axios';
+
 function Hpbooks() {
-    const filterData = list.filter((data)=> data.category === "Free");
+    const [hpbook,setHpbook] = useState([]);
+    useEffect(()=>{
+      const getHpbook = async()=>{
+        try {
+            const res = await axios.get("http://localhost:4001/book");
+            setHpbook(res.data.filter((data)=> data.category === "Free"));
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      getHpbook();
+    }
+      
+      ,[])
     var settings = {
         dots: true,
         infinite: false,
@@ -47,7 +62,7 @@ function Hpbooks() {
             <h1 className="font-semibold">Free Books</h1>
         <div>
         <Slider {...settings}>
-        {filterData.map((item)=>(
+        {hpbook.map((item)=>(
             <Cards item={item} key = {item.id}/>
             ))}
       </Slider>
